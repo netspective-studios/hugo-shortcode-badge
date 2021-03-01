@@ -27,5 +27,5 @@ target                            = "layouts/shortcodes"
 ```
 ## Sample
 ```html
-{{< badge renderHost="https://badgen.infra.medigy.com" subject="test" status="pending" color="red" scale="1.5" icon="github" >}}
+{{< badge renderHost="https://badgen.infra.medigy.com" subject="Community%20of%20Practice" status="Join" color="green" scale="1.5" icon="github" >}}
 ```
