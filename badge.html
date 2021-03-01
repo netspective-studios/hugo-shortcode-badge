@@ -1,0 +1,19 @@
+{{/* see: https://badgen.net/ */}}
+
+
+{{ $badgen := newScratch }}
+{{ $badgen.Set "subject" (.Get "subject") }}
+{{ $badgen.Set "status" (.Get "status") }}
+{{ $badgen.Set "color" (.Get "color") }}
+{{ $badgen.Set "icon" (.Get "icon") }}
+{{ $badgen.Set "scale" (.Get "scale") }}
+
+{{ if .Get "renderHost" }}
+    {{ $badgen.Set "host" (.Get "renderHost") }}
+{{ else if getenv "NS_HSC_BADGEN_RENDER_HOST" }}
+    {{ $badgen.Set "host" (getenv "NS_HSC_BADGEN_RENDER_HOST") }}
+{{ else }}
+    {{ $badgen.Set "host" "http://badgen.net" }}
+{{ end }}
+{{ $generatedSrc := print ($badgen.Get "host") "/badge/" ($badgen.Get "subject") "/" ($badgen.Get "status") "?color=" ($badgen.Get "color") "&icon=" ($badgen.Get "icon") "&scale=" ($badgen.Get "scale")}}
+<img src="{{ $generatedSrc }}" >
