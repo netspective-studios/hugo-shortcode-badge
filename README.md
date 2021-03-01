@@ -8,7 +8,7 @@ Include this in your Hugo `config.yaml`:
 ```
 module:
   imports:
-    - path: github.com/netspective-studios/hugo-shortcode-diagram
+    - path: github.com/netspective-studios/hugo-shortcode-badge
       mounts:
         - source: shortcodes
           target: layouts/shortcodes
@@ -18,7 +18,7 @@ If you are using `config.toml` in Hugo
 
 ```
 [[module.imports]]
-path                              = "github.com/netspective-studios/hugo-shortcode-diagram"
+path                              = "github.com/netspective-studios/hugo-shortcode-badge"
 
 [[module.imports.mounts]]
 source                            = "shortcodes"
