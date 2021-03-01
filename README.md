@@ -1,6 +1,6 @@
-# Hugo shortcode to render Badgen
+# Hugo shortcode to render Badge
 
-The `badgen` Hugo shortcode renders [Badgen](https://shields.io/) supported badges from in markdown text. 
+The `badge` Hugo shortcode renders [Badgen](https://badgen.net/) supported badges from in markdown text. 
 ## Usage
 
 Include this in your Hugo `config.yaml`:
