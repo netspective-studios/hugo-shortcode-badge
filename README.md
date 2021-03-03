@@ -29,3 +29,7 @@ target                            = "layouts/shortcodes"
 ```html
 {{< badge renderHost="https://badgen.infra.medigy.com" subject="Community%20of%20Practice" status="Join" color="green" scale="1.5" icon="github" >}}
 ```
+## Sample HTTPS Service (upvote-count)
+```html
+{{< badge renderHost="https://badgen.infra.medigy.com" httpsService="true" serviceRequestFor="upvote-count" offeringIdentifier="9465" >}}
+```

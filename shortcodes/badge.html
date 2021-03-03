@@ -7,6 +7,11 @@
 {{ $badgen.Set "color" (.Get "color") }}
 {{ $badgen.Set "icon" (.Get "icon") }}
 {{ $badgen.Set "scale" (.Get "scale") }}
+{{ $badgen.Set "httpsService" (.Get "httpsService") }}
+{{ $badgen.Set "serviceRequestFor" (.Get "serviceRequestFor") }}
+{{ $badgen.Set "offeringIdentifier" (.Get "offeringIdentifier") }}
+{{ $badgen.Set "httpsServiceEndPoint" "badge.medigy.com" }}
+{{ $badgen.Set "upvoteServiceRequest" (print "/service/badgen/" ($badgen.Get "serviceRequestFor") "/offering/") }}
 
 {{ if .Get "renderHost" }}
     {{ $badgen.Set "host" (.Get "renderHost") }}
@@ -15,5 +20,11 @@
 {{ else }}
     {{ $badgen.Set "host" "https://badgen.net" }}
 {{ end }}
-{{ $generatedSrc := print ($badgen.Get "host") "/badge/" ($badgen.Get "subject") "/" ($badgen.Get "status") "?color=" ($badgen.Get "color") "&icon=" ($badgen.Get "icon") "&scale=" ($badgen.Get "scale")}}
-<img src="{{ $generatedSrc }}" >
+{{ if ne ($badgen.Get "httpsService") "true" }}
+    {{ $generatedSrc := print ($badgen.Get "host") "/badge/" ($badgen.Get "subject") "/" ($badgen.Get "status") "?color=" ($badgen.Get "color") "&icon=" ($badgen.Get "icon") "&scale=" ($badgen.Get "scale")}}
+    <img src="{{ $generatedSrc }}" >
+{{ else }}
+    {{ $generatedSrc := print ($badgen.Get "host") "/https/" ($badgen.Get "httpsServiceEndPoint") ($badgen.Get "upvoteServiceRequest") ($badgen.Get "offeringIdentifier") }}
+    <img src="{{ $generatedSrc }}" >
+{{ end }}
+    
